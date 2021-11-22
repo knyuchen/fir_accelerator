@@ -1,0 +1,12 @@
+[submodule "hardware_utility"]
+	path = submodule/hardware_utility
+	url = git@github.com:knyuchen/hardware_utility.git
+[submodule "fifo_model"]
+	path = submodule/fifo_model
+	url = git@github.com:knyuchen/fifo_model.git
+[submodule "fix_point_model"]
+	path = submodule/fix_point_model
+	url = git@github.com:knyuchen/fix_point_model.git
+[submodule "interconnect_model"]
+	path = submodule/interconnect_model
+	url = git@github.com:knyuchen/interconnect_model.git
