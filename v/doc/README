@@ -1,0 +1,44 @@
+Registers 
+
+register 0: command
+               0 for restart
+               2 for start
+
+register 1: read data from DRAM, 
+               start_addr (29 + 3 bit), 
+               len (32 bit)
+
+register 2: write data to DRAM, 
+               start_addr (29 + 3 bit), 
+               len (32 bit)
+
+register 3: config
+               unused bits (33 bit) 
+               out_rate (4 bit)                  
+               in_rate (4 bit)                    
+               delay for auto (8 bit) min, max 255
+               shift amount for mult  (4 bit) 
+               number of tap: max 128, min 1 (8 bit)
+               auto or not (1 bit)               
+
+retister 4: input tap (weight)
+               write input tap
+
+
+register 5: intertupt handling, 
+               write 0 to 4 to reset interrupt
+
+----------------------------------------------------------------
+
+Operation
+
+input_config (0, 0) : make sure to restart
+input_config (1) : set read data address & len
+input_config (2) : set write data address & len
+input_config (3) : set configuration
+
+if doing cross --> input_config (4) to input tap
+
+input_config (0, 2) : start operation
+
+wait for interrupt, if interrupt --> input_config (4, 0)
